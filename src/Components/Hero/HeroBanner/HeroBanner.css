@@ -1,0 +1,12 @@
+.heroBanner {
+  overflow: hidden;
+}
+.heroBanner img {
+  border-radius: 0.5rem;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+}
+.heroBanner img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}

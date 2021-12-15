@@ -1,0 +1,35 @@
+.slider {
+  position: relative;
+  border-radius: 0.5rem;
+}
+.slider img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.slider .slider-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: start;
+  height: 100%;
+  padding-left: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .slider .slider-content {
+    width: 100%;
+  }
+}
+.react-multi-carousel-dot button {
+  border-width: 1px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-color: #059669 !important;
+}
+.react-multi-carousel-dot--active button {
+  background-color: #059669 !important;
+}

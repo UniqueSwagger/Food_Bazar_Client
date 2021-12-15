@@ -1,0 +1,9 @@
+.navigation .navbar-light .navbar-nav .nav-link {
+  color: black !important;
+}
+.navigation .navbar-light .navbar-nav .nav-link:hover {
+  color: #10b981 !important;
+}
+.navigation .navbar-light .navbar-nav .nav-link.active {
+  color: #008f5f !important;
+}
