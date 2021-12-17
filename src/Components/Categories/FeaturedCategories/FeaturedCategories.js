@@ -10,14 +10,8 @@ const FeaturedCategories = () => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-  // const [categories, setCategories] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5000/categories")
-  //     .then((res) => setCategories(res.data));
-  // }, []);
   return (
-    <div style={{ height: "100vh" }}>
+    <div className="mb-5 pb-5">
       <SectionTitle
         title="Featured Categories"
         description="Choose your necessary products from this feature categories."

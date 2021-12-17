@@ -30,3 +30,8 @@
     width: 100%;
   }
 }
+.badge {
+  background: #ff0000;
+  margin-left: -7px;
+  transform: translateY(-12px);
+}
