@@ -11,17 +11,17 @@ const HeroCarousel = () => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
     },
   };
   return (
@@ -35,38 +35,50 @@ const HeroCarousel = () => {
     >
       <div className="slider">
         <img src={slider1} alt="slider1" />
-        <div className="slider-content">
+        <div className="slider-content flex-start">
           <h3>The Best Quality Products Guaranteed!</h3>
-          <p className="py-1">
+          <p className="py-md-1 py-0">
             Dramatically facilitate effective total linkage for go forward
             processes...
           </p>
-          <Button variant="success" className="shadow-none">
+          <Button
+            style={{ width: "30%" }}
+            variant="success"
+            className="shadow-none"
+          >
             Shop Now
           </Button>
         </div>
       </div>
       <div className="slider">
         <img src={slider2} alt="slider2" />
-        <div className="slider-content">
+        <div className="slider-content flex-start">
           <h3>Best Different Type of Grocery Store...</h3>
-          <p className="py-1">
+          <p className="py-md-1 py-0">
             Quickly aggregate empowered networks after emerging products...
           </p>
-          <Button variant="success" className="shadow-none">
+          <Button
+            style={{ width: "30%" }}
+            variant="success"
+            className="shadow-none"
+          >
             Shop Now
           </Button>
         </div>
       </div>
       <div className="slider">
         <img src={slider3} alt="slider3" />
-        <div className="slider-content">
+        <div className="slider-content flex-start">
           <h3>Quality Freshness Guaranteed!</h3>
-          <p className="py-1">
+          <p className="py-md-1 py-0">
             Intrinsically fashion performance based products rather than
             accurate benefits...
           </p>
-          <Button variant="success" className="shadow-none">
+          <Button
+            style={{ width: "30%" }}
+            variant="success"
+            className="shadow-none"
+          >
             Shop Now
           </Button>
         </div>
