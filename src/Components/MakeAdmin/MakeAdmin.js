@@ -8,22 +8,24 @@ const MakeAdmin = () => {
   const [loading, setLoading] = React.useState(false);
   const onSubmit = (data) => {
     setLoading(true);
-    axios.put("http://localhost:5000/users/admin", data).then((res) => {
-      if (res.data.modifiedCount || res.data.insertedId) {
-        Swal.fire(
-          "Successfully made admin",
-          `You have made ${data.email} an admin`,
-          "success"
-        );
-      } else {
-        Swal.fire(
-          "Already an admin",
-          `You have made ${data.email} an admin already`,
-          "warning"
-        );
-      }
-      setLoading(false);
-    });
+    axios
+      .put("https://cryptic-journey-46422.herokuapp.com/users/admin", data)
+      .then((res) => {
+        if (res.data.modifiedCount || res.data.insertedId) {
+          Swal.fire(
+            "Successfully made admin",
+            `You have made ${data.email} an admin`,
+            "success"
+          );
+        } else {
+          Swal.fire(
+            "Already an admin",
+            `You have made ${data.email} an admin already`,
+            "warning"
+          );
+        }
+        setLoading(false);
+      });
   };
   return (
     <div>

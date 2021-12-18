@@ -3,7 +3,9 @@ import axios from "axios";
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
-    const response = await axios.get("http://localhost:5000/categories");
+    const response = await axios.get(
+      "https://cryptic-journey-46422.herokuapp.com/categories"
+    );
     return response.data;
   }
 );

@@ -97,7 +97,7 @@ const useFirebase = () => {
     const user = { email, displayName };
     axios({
       method: httpMethod,
-      url: "http://localhost:5000/users",
+      url: "https://cryptic-journey-46422.herokuapp.com/users",
       data: user,
     });
   };
@@ -105,7 +105,9 @@ const useFirebase = () => {
   //admin check
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/${currentUser?.email}`)
+      .get(
+        `https://cryptic-journey-46422.herokuapp.com/users/${currentUser?.email}`
+      )
       .then((res) => {
         setAdmin(res.data.admin);
       });

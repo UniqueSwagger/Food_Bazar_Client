@@ -8,7 +8,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState(null);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://cryptic-journey-46422.herokuapp.com/products")
       .then((res) => setProducts(res.data));
   }, [products?.length]);
   //confirming deletion
@@ -28,12 +28,14 @@ const ManageProducts = () => {
           "Successfully removed the watch from collection",
           "success"
         );
-        axios.delete(`http://localhost:5000/products/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            const remaining = products.filter((watch) => watch._id !== id);
-            setProducts(remaining);
-          }
-        });
+        axios
+          .delete(`https://cryptic-journey-46422.herokuapp.com/products/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              const remaining = products.filter((watch) => watch._id !== id);
+              setProducts(remaining);
+            }
+          });
       }
     });
   };

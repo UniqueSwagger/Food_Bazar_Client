@@ -22,7 +22,7 @@ const AddProduct = () => {
         `${data?.children.toLowerCase()}`,
       ];
       axios
-        .post("http://localhost:5000/products", data)
+        .post("https://cryptic-journey-46422.herokuapp.com/products", data)
         .then(() => setLoading(false))
         .then(() => {
           Swal.fire(
