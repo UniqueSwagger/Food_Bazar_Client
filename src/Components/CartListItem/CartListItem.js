@@ -9,15 +9,15 @@ import {
 } from "../../redux/slices/allProductSlice";
 const CartListItem = ({ addedProduct }) => {
   const dispatch = useDispatch();
-  const { cartQuantity, originalPrice, image, title } = addedProduct;
+  const { cartQuantity, price, image, title } = addedProduct;
   return (
     <div className="d-flex align-items-center">
       <img className="w-25 me-3" src={image} alt="" />
       <div>
         <small className=" d-block">{title}</small>
-        <small className="text-muted">Item price ${originalPrice}</small>
+        <small className="text-muted">Item price ${price}</small>
         <div className="d-flex align-items-center my-2">
-          <h5 className="mb-0">${originalPrice * cartQuantity}</h5>
+          <h5 className="mb-0">${price * cartQuantity}</h5>
           <div className="cart-quantity-icon  mx-5">
             <div className="d-flex align-items-center">
               <AiOutlineMinus

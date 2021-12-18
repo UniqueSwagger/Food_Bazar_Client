@@ -35,3 +35,17 @@
   margin-left: -7px;
   transform: translateY(-12px);
 }
+.checkout-btn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.total {
+  color: #0f9f6e;
+}
+.checkout-btn:hover {
+  background-color: #0f9f6e;
+}
