@@ -1,0 +1,7 @@
+.breadCrumb {
+  background-image: url("https://kachabazar-store.vercel.app/page-header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5rem 0;
+  background-position: bottom;
+}

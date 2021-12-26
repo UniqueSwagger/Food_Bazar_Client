@@ -18,6 +18,9 @@ const filterProductSlice = createSlice({
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
       state.categories = action.payload;
     });
+    builder.addCase(fetchCategories.pending, (state) => {
+      state.categories = [];
+    });
   },
 });
 

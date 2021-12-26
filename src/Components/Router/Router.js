@@ -14,6 +14,10 @@ import UserDashboard from "../UserDashboard/UserDashboard";
 import MyOrders from "../MyOrders/MyOrders";
 import Admin from "../Admin/Admin";
 import Checkout from "../Checkout/Checkout";
+import AboutUsPage from "../../Pages/AboutUsPage/AboutUsPage";
+import ContactUsPage from "../../Pages/ContactUsPage/ContactUsPage";
+import PrivacyPolicyPage from "../../Pages/PrivacyPolicyPage/PrivacyPolicyPage";
+import TermsConditionsPage from "../../Pages/Terms&ConditionsPage/Terms&ConditionsPage";
 const AppRouter = () => {
   return (
     <AuthProvider>
@@ -53,6 +57,13 @@ const AppRouter = () => {
                 <Checkout />
               </PrivateRoute>
             }
+          />
+          <Route path="/aboutUs" element={<AboutUsPage />} />
+          <Route path="/contactUs" element={<ContactUsPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsConditionsPage />}
           />
         </Routes>
         <Footer />

@@ -7,7 +7,7 @@ import {
   FormControl,
   Offcanvas,
 } from "react-bootstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../../images/logo.png";
 import {
   AiOutlineShoppingCart,
@@ -33,7 +33,6 @@ const TopBar = () => {
   const {
     currentUser: { displayName, photoURL },
   } = useAuth();
-  const navigate = useNavigate();
   return (
     <>
       <div className="topBar">

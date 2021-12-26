@@ -29,6 +29,9 @@ const allProductSlice = createSlice({
         (product) => product._id !== action.payload._id
       );
     },
+    clearTheCart: (state) => {
+      state.addedProducts = [];
+    },
     increaseQuantity: (state, action) => {
       const existingProduct = state.addedProducts.find(
         (product) => product._id === action.payload._id
@@ -47,8 +50,16 @@ const allProductSlice = createSlice({
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.products = action.payload;
     });
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.products = [];
+    });
   },
 });
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } =
-  allProductSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  clearTheCart,
+} = allProductSlice.actions;
 export default allProductSlice.reducer;

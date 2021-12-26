@@ -1,16 +1,40 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Row, Col, Container, Form, Button, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import CartListItem from "../CartListItem/CartListItem";
+import { clearTheCart } from "../../redux/slices/allProductSlice";
+import useAuth from "../../hooks/useAuth";
 const Checkout = () => {
+  const {
+    currentUser: { displayName, email },
+  } = useAuth();
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const { addedProducts } = useSelector((state) => state.products);
   const totalAddedProductsPrice = addedProducts.reduce((acc, item) => {
     return acc + item.cartQuantity * item.price;
   }, 0);
   const [loading, setLoading] = useState(false);
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setLoading(true);
+    data.status = "pending";
+    data.addedProducts = addedProducts;
+    data.email = email;
+    axios.post("http://localhost:5000/order", data).then((res) => {
+      if (res.data.insertedId) {
+        dispatch(clearTheCart());
+        setLoading(false);
+        Swal.fire(
+          "Ordered successfully!",
+          "Thanks for shopping with us. We will contact you soon.",
+          "success"
+        );
+      }
+    });
+  };
   return (
     <div style={{ background: "#F9FAFB" }}>
       <Container>
@@ -62,6 +86,7 @@ const Checkout = () => {
                         {...register("name")}
                         required
                         type="text"
+                        defaultValue={displayName}
                         placeholder="Your name"
                       />
                     </Form.Group>
@@ -70,6 +95,8 @@ const Checkout = () => {
                       <Form.Control
                         {...register("email")}
                         required
+                        disabled
+                        defaultValue={email}
                         type="email"
                         placeholder="Your email"
                       />
@@ -86,7 +113,6 @@ const Checkout = () => {
                     <Form.Group className="mb-3">
                       <Form.Label className="fw-bold">Message</Form.Label>
                       <Form.Control
-                        required
                         {...register("description")}
                         as="textarea"
                         placeholder="Any special message?"
@@ -95,16 +121,6 @@ const Checkout = () => {
                     </Form.Group>
                   </div>
                   <div className="mx-auto">
-                    <Form.Group className="mb-3">
-                      <Form.Label className="fw-bold">Price</Form.Label>
-                      <Form.Control
-                        required
-                        type="number"
-                        {...register("price")}
-                        placeholder="Enter Price"
-                      />
-                    </Form.Group>
-
                     <Form.Group className="mb-3">
                       <Form.Label className="fw-bold">City</Form.Label>
                       <Form.Control

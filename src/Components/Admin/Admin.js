@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import AddProduct from "../AddProduct/AddProduct";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageOrders from "../ManageOrders/ManageOrders";
 import ManageProducts from "../ManageProducts/ManageProducts";
 
 import "./Admin.css";
@@ -19,7 +20,7 @@ const Admin = () => {
               onSelect={(k) => setKey(k)}
             >
               <Tab eventKey="manageOrders" title="Manage orders">
-                <h1>Hello manage orders</h1>
+                <ManageOrders />
               </Tab>
               <Tab eventKey="manageProducts" title="Manage products">
                 <ManageProducts />
