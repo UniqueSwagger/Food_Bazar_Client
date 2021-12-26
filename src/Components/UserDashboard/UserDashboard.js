@@ -16,7 +16,7 @@ const UserDashboard = () => {
   const [userOrders, setUserOrders] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/orders/${email}`)
+      .get(`https://cryptic-journey-46422.herokuapp.com/orders/${email}`)
       .then((res) => setUserOrders(res.data));
   }, [email]);
 

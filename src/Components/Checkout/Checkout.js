@@ -23,17 +23,19 @@ const Checkout = () => {
     data.status = "pending";
     data.addedProducts = addedProducts;
     data.email = email;
-    axios.post("http://localhost:5000/order", data).then((res) => {
-      if (res.data.insertedId) {
-        dispatch(clearTheCart());
-        setLoading(false);
-        Swal.fire(
-          "Ordered successfully!",
-          "Thanks for shopping with us. We will contact you soon.",
-          "success"
-        );
-      }
-    });
+    axios
+      .post("https://cryptic-journey-46422.herokuapp.com/order", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          dispatch(clearTheCart());
+          setLoading(false);
+          Swal.fire(
+            "Ordered successfully!",
+            "Thanks for shopping with us. We will contact you soon.",
+            "success"
+          );
+        }
+      });
   };
   return (
     <div style={{ background: "#F9FAFB" }}>
